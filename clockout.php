@@ -20,13 +20,12 @@ $punch=$timing['punchin'];
 $punchin = date('Y-m-d H:i:s',strtotime($punch));
 
 // IP addresses Restrictions
-//require 'hanoi_ip.php';
-//require 'kuma_ip.php';
+
 require 'black_ip.php';
 // Clock-out from Hanoi IP address 
-if($hanoi_ip){
+if($add_ip){
 	//Determine location base on IP address
-	$location = "Unix Office Hanoi";
+	$location = "Office location 1";
 	
 	//Convert server time (JST) to Hanoi time JST-2
 	$time = date('H:i:s', strtotime($now));
@@ -80,9 +79,9 @@ if($hanoi_ip){
 	$fix_query = mysqli_query($conn, $fix_sql) or die ("ERROR inserting fix hours total: ".mysqli_error($conn));
 	
 	
-}elseif ($kumamoto_ip){
+}elseif ($add1_ip){
 	//If Kumamoto Office IP address is detected.
-	$location = "Unix Office Kumamoto";
+	$location = "Office 2";
 	$clock_out_time2 = date_default_timezone_get();
 	$now2 = date('Y-m-d H:i:s',strtotime($clock_out_time2));
 	// calculation of the actual_total time
@@ -236,7 +235,7 @@ if($hanoi_ip){
 	sscanf($total_jp,"%d:%d:%d ", $h, $m, $s);
 	sscanf($ot_jp,"%d:%d:%d ", $hr, $min, $sec);
 	if($hr > 0){// If there was overtime
-		$p   = $h * $pay_rate;         // regular hours 8 X rate
+		$p   = $h * $pay_rate;         // regular hours 8 X rate please update this three lines to the pay rate
 		$ot1 = $hr * $pay_rate;      // overtime X rate (100%)
 		$ot2 = $pay_rate * 0.5 * $hr;   // overtime X rate (50%)
 		if($m > 0){
@@ -430,6 +429,6 @@ elseif ($myip){
 	$fix_query = mysqli_query($conn, $fix_sql) or die ("ERROR inserting fix hours total: ".mysqli_error($conn));
 	
 }// kuma_ip ends here !!!!
-echo "<br><br><br><br><center><img src='/unix/img/clok1.gif' height=50 width=50> <h3> $full_name Clocking Out from <font color='red'>$location</font></h3></center>";
+echo "<br><br><br><br><center><img src='/img/clok1.gif' height=50 width=50> <h3> $full_name Clocking Out from <font color='red'>$location</font></h3></center>";
 echo '<META HTTP-EQUIV=REFRESH CONTENT="2; '.$_SERVER["HTTP_REFERER"].'">';
 ?>
