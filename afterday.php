@@ -9,7 +9,7 @@
 				<th>In</th>	
 				<th>out</th>	
 				<th>OT hours<br>REG HOURS</th>	
-				<? if($_SESSION['id']==4 || $_SESSION['id']==1){?>		
+				<? if($_SESSION['username']=='admin'){?>		
 				<th>total (¥)</th>
 				<? }?>						
 			</tr>
@@ -52,7 +52,7 @@ while($row = mysqli_fetch_array($result)){
 	$actual_total = date('g:i',strtotime($row['actual_total']));
 	$in = $row['clockin'];
 	$out = $row['clockout'];
-	$online = "img/online.png";
+	$online = "img/online.png"; // Update url to your online and offline light
 	$offline = "img/offline.png";
 	
 	if($comment==""){
@@ -77,7 +77,7 @@ while($row = mysqli_fetch_array($result)){
 			echo $tab1;
 			echo $tab2;
 			echo "<td><font color='red'>$total_overtime<br>$total</font></td>";
-			if($_SESSION['id']==4 || $_SESSION['id']==1){
+			if($_SESSION['username']=='admin'){
 			echo "<td><p align='right'>￥".number_format($paycheck)."</p></td>";
 			}
 			
