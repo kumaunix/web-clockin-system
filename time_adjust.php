@@ -42,7 +42,7 @@ $payrate = $row['rank_rate'];
             <span class="pure-form-message-inline">clock-in time to adjust be <font color="red"><? echo $in; ?></font></span>
         </div>
         <div class="pure-control-group">
-            <label for="timeout"  >Out:</label>
+            <label for="timeout">Out:</label>
             <input id="time" name="timeout" type="time" value="<? echo $out; ?>">
             <span class="pure-form-message-inline">clock-out time to adjust be <font color="red"><? echo $out; ?></font></span>
         </div>
@@ -102,7 +102,7 @@ if($a1 = '08:00:00' && $a2 = '17:10:00'){
 $update2 = ("UPDATE timecard SET payroll='".$payfortheday."', total='".$reg."' WHERE id='".$id."' ");
 $result_update2 = mysqli_query($conn, $update2) or die ("ERROR Updating Timecard".mysqli_error($conn));
 	
-echo "<br><br><br><br><center><img src='/unix/img/clok1.gif' height=50 width=50> <h4> Updating Time Information</h4></center>";
+echo "<br><br><br><br><center><img src='img/clok1.gif' height=50 width=50> <h4> Updating Time Information</h4></center>";
 echo '<META HTTP-EQUIV=REFRESH CONTENT="2; filter_search.php">';	
 }
 ?>
