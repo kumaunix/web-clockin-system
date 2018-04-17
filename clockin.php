@@ -18,9 +18,9 @@ $clockin = mysqli_query($conn, $in) or die ("Error Clocking In Insert into user 
 //include 'kuma_ip.php';
 include 'black_ip.php';
 // If clockin from Hanoi IP address
-if($hanoi_ip){
+if($add1_ip){
 	//Determine location base on IP address
-	$location = "Unix Office Hanoi";
+	$location = "Office 2 Location";
 	
 //	$date = new DateTime("now", new DateTimeZone('Asia/Ho_Chi_Minh') ); 
 //	echo $date->format('Y-m-d H:i:s');
@@ -39,6 +39,7 @@ if($hanoi_ip){
 	$hanoi_current_time = date('H:i:s', strtotime($hanoi_time_clock_in)); // today in Hanoi
 	$hanoi_current_day = date('Y-m-d', strtotime($hanoi_time_clock_in));  // current time in Hanoi
 	
+	// Please update the following to the usuall time slot clock in. 
 	$am_5_50 = '05:50:00';
 	$am_6_20 = '06:20:00'; 
 	$am_6_50 = '06:50:00';
@@ -79,8 +80,8 @@ if($hanoi_ip){
 	$hanoi_clock_input = mysqli_query($conn, $hanoi_clock_in) or die ("Error Clocking In Into timesheet from Hanoi :".mysqli_error($conn));
 
 // Clocking in from Kumamoto Office	
-}elseif ($kumamoto_ip || $myip){
-	$location = "Unix Office Kumamoto";
+}elseif ($add2_ip || $myip){
+	$location = "Office Location 1";
 	//Japan time and date
 	$jp_time = date('H:i:s', strtotime($now));     
 	$jp_today = date('Y-m-d', strtotime($now)); 
