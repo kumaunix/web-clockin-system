@@ -1,3 +1,6 @@
+Please add security to all pages probably at the top. 
+Make sure that you carry the right session between pages, make sure that you create a token for the sessions inroder to make sure that it is secure. Or other security technology that you wish to use.
+
 
 Please create table for users data
 
