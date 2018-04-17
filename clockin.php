@@ -14,8 +14,7 @@ $in = ("UPDATE users SET in_or_out=1, punchin='".$now."' where id=$id ");
 $clockin = mysqli_query($conn, $in) or die ("Error Clocking In Insert into user status :".mysqli_error($conn));
 
 //IP address Restriction
-//include 'hanoi_ip.php';
-//include 'kuma_ip.php';
+
 include 'black_ip.php';
 // If clockin from Hanoi IP address
 if($add1_ip){
