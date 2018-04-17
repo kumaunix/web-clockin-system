@@ -23,7 +23,7 @@ $result=mysqli_query($conn, $report) or die ("Error Retrieving Timesheet".mysqli
 while($row = mysqli_fetch_array($result)){
 	$name = $row['full_name'];
 	$file = $row['profile_pic'];
-	$fileshow = "../unix/dept/img/profile/$file";
+	$fileshow = "img/profile/$file"; // update to where profile pictures are stored !!!
 	$dept=$row['dept'];
 	$em_id = $row['employment_id'];
 	$aho = date('M-dS-Y', strtotime($row['clockin']));
@@ -52,8 +52,8 @@ while($row = mysqli_fetch_array($result)){
 	$actual_total = date('g:i',strtotime($row['actual_total']));
 	$in         = $row['clockin'];
 	$out        = $row['clockout'];
-	$online     = "../unix/img/online.png";
-	$offline    = "../unix/img/offline.png";
+	$online     = "img/online.png";
+	$offline    = "img/offline.png";
 	
 	if($comment==""){
 		$tab1 = "<td>$actual_in <br><font color='red'>$clockin</font></td>";
