@@ -5,7 +5,7 @@ require 'db.php';
 //Update status who are absent @9:00pm
 require 'update_yasumi_status.php';
 
-//Restrict Access to Kumamoto ip addresses Only
+//Restrict Allowed Locations Only
 require 'black_ip.php';
 
 //refresh page every 3 seconds to update clockin list of today
